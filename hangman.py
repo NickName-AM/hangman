@@ -4,42 +4,10 @@
 
 import random
 import os
+import structures
 from time import sleep
 
-hangman = [
-'''
-  O
-''',
-'''
-  O
-  |
-''',
-'''
-  O
- /|
-''',
-r'''
-  O
- /|\
-''',
-r'''
-  O
- /|\
-  |
-''',
-r'''
-  O
- /|\
-  |
- /
-''',
-r'''
-  O
- /|\
-  |
- / \
-'''
-]
+hangman = structures.structureMan
 
 # Clear the screen
 def clear():
@@ -86,12 +54,11 @@ def getGuess():
 def check():
   clear()
   if chance == 7 and ''.join(hiddenLetters) != word:
-    print('You Lose.')
+    print(structures.structureYouLost)
     print('The correct word(s) : ' + word)
     exit()
   elif ''.join(hiddenLetters) == word:
-    print('You win.')
-
+    print(structures.structureYouWon)
     print('Word(s): ' + word)
     exit()
 
