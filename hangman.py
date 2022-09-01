@@ -2,16 +2,17 @@
 
 # A Game of hangman
 
-import random
-import os
 import structures
+import random
+from string import punctuation
+from os import system
 from time import sleep
 
 hangman = structures.structureMan
 
 # Clear the screen
 def clear():
-  os.system('clear')
+  system('clear')
 
 # hangman structure ,'_'s and already typed letters
 def createStructure():
@@ -31,11 +32,11 @@ def wordFill(guess):
     i += 1
 
 # Fill '_' with spaces
-def fillSpace():
-  i = 0
+def fillSpecial():
+  i = 0 
   for _ in word:
-    if word[i] == ' ':
-      hiddenLetters[i] = ' '
+    if word[i] in punctuation or word[i] == ' ':
+      hiddenLetters[i] = word[i]
     i += 1
 
 # Get the letter from user
@@ -93,8 +94,8 @@ word = chooseRandomWord()
 # The _'s
 hiddenLetters = ['_'] * len(word)
 
-# Fill '_' with ' ' if there are spaces
-fillSpace()
+# Fill special characters($,@,_....) with ' ' if there are spaces
+fillSpecial()
 
 # Letters that were previously entered
 alreadyTyped = []
