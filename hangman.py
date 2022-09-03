@@ -64,8 +64,8 @@ def check():
     exit()
 
 # Choose a random word from given file
-def chooseRandomWord():
-  with open(FILENAME) as f:
+def chooseRandomWord(fname):
+  with open(fname) as f:
     wordList = f.readlines()
   chosenWord = random.choice(wordList)[:-1]
   return chosenWord
@@ -89,7 +89,7 @@ def play():
 FILENAME='words.txt'
 
 # Choose random word(s) from the file
-word = chooseRandomWord()
+word = chooseRandomWord(FILENAME)
 
 # The _'s
 hiddenLetters = ['_'] * len(word)
