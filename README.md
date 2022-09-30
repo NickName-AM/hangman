@@ -1,3 +1,3 @@
 # Hangman
-Usage:
-python3 hangman.py
+## Usage:
+	python3 hangman.py
